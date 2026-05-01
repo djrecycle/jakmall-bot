@@ -1,0 +1,26 @@
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore CSV results and raw data
+*.csv
+*.html
+jakmall_gambar/
+jakmall_hasil_md/
+hasil_md/
+
+# Ignore Chrome Debug Profile
+jakmall_debug_profile/
+
+# Ignore virtual environments
+venv/
+.venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
+
+# Ignore system files
+.DS_Store
+.env
