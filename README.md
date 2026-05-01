@@ -32,8 +32,7 @@ Bot ini menyediakan menu sentral interaktif yang sangat mudah digunakan melalui 
 4. **[4] Preview Hasil**
    - Men-generate *Dashboard Preview* berbentuk halaman web interaktif (`jakmall_preview.html`).
    - Halaman ini memungkinkan Anda mencari, mem-filter per kategori, dan mengekspor seluruh data yang telah discrape ke format Excel.
-   
-   ![Product Detail](assets/product_detail.png)
+
    ![Dashboard Preview](assets/dashboard.png)
 5. **[5] Update Produk**
    - Melakukan pengecekan dan *re-scrape* (memperbarui data) untuk produk-produk yang sudah di-scrape sebelumnya. Sangat berguna untuk sinkronisasi harga & stok terbaru.
