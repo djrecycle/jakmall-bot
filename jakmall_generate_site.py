@@ -91,7 +91,7 @@ def generate_site():
     <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
     <style>
         :root {{
-            --jakmall-blue: #0088cc; /* Jakmall Blue */
+            --jakmall-orange: #ff6b00; /* Jakmall Orange */
             --bg-dark: #0f0f12;
             --sidebar-bg: rgba(25, 25, 30, 0.8);
             --card-bg: #1e1e24;
@@ -106,24 +106,24 @@ def generate_site():
         /* Sidebar Style */
         .sidebar {{ width: 320px; background: var(--sidebar-bg); backdrop-filter: blur(12px); border-right: 1px solid rgba(255, 255, 255, 0.05); display: flex; flex-direction: column; transition: all 0.3s ease; z-index: 100; }}
         .sidebar-header {{ padding: 30px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }}
-        .sidebar-header h1 {{ font-size: 1.5rem; font-weight: 700; color: var(--jakmall-blue); display: flex; align-items: center; gap: 10px; }}
+        .sidebar-header h1 {{ font-size: 1.5rem; font-weight: 700; color: var(--jakmall-orange); display: flex; align-items: center; gap: 10px; }}
         .search-container {{ padding: 15px 25px; }}
         .search-input {{ width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 12px 15px; border-radius: 8px; color: white; outline: none; transition: border 0.3s; }}
-        .search-input:focus {{ border-color: var(--jakmall-blue); }}
+        .search-input:focus {{ border-color: var(--jakmall-orange); }}
         .nav-content {{ flex: 1; overflow-y: auto; padding: 10px 0; }}
         .category-group {{ margin-bottom: 15px; }}
         .category-title {{ padding: 12px 25px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: white; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.02); transition: background 0.2s; }}
         .category-title:hover {{ background: rgba(255, 255, 255, 0.05); }}
-        .category-title::after {{ content: '▼'; font-size: 0.6rem; transition: transform 0.3s; color: var(--jakmall-blue); }}
+        .category-title::after {{ content: '▼'; font-size: 0.6rem; transition: transform 0.3s; color: var(--jakmall-orange); }}
         .category-group.collapsed .category-title::after {{ transform: rotate(-90deg); }}
         .category-items {{ max-height: 1000px; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); }}
         .category-group.collapsed .category-items {{ max-height: 0; }}
         .file-item {{ padding: 12px 25px; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; border-left: 3px solid transparent; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }}
         .file-item:hover {{ background: rgba(255, 255, 255, 0.03); color: white; }}
-        .file-item.active {{ background: rgba(0, 136, 204, 0.1); color: var(--jakmall-blue); border-left-color: var(--jakmall-blue); font-weight: 600; }}
+        .file-item.active {{ background: rgba(0, 136, 204, 0.1); color: var(--jakmall-orange); border-left-color: var(--jakmall-orange); font-weight: 600; }}
 
         /* Buttons */
-        .btn {{ background: var(--jakmall-blue); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 600; transition: background 0.3s; display: flex; align-items: center; gap: 5px; }}
+        .btn {{ background: var(--jakmall-orange); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 600; transition: background 0.3s; display: flex; align-items: center; gap: 5px; }}
         .btn:hover {{ background: #006699; }}
         .btn-small {{ padding: 4px 8px; font-size: 0.7rem; }}
         .export-all-container {{ padding: 0 25px 15px 25px; }}
@@ -131,11 +131,11 @@ def generate_site():
         .markup-control {{ padding: 15px 25px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }}
         .markup-control label {{ font-size: 0.8rem; color: var(--text-secondary); display: block; margin-bottom: 8px; }}
         .markup-control .markup-row {{ display: flex; align-items: center; gap: 10px; }}
-        .markup-control input[type="range"] {{ flex: 1; accent-color: var(--jakmall-blue); cursor: pointer; height: 6px; -webkit-appearance: none; appearance: none; background: rgba(255,255,255,0.1); border-radius: 3px; outline: none; }}
-        .markup-control input[type="range"]::-webkit-slider-thumb {{ -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--jakmall-blue); cursor: pointer; box-shadow: 0 2px 6px rgba(0,136,204,0.4); transition: transform 0.15s; }}
+        .markup-control input[type="range"] {{ flex: 1; accent-color: var(--jakmall-orange); cursor: pointer; height: 6px; -webkit-appearance: none; appearance: none; background: rgba(255,255,255,0.1); border-radius: 3px; outline: none; }}
+        .markup-control input[type="range"]::-webkit-slider-thumb {{ -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--jakmall-orange); cursor: pointer; box-shadow: 0 2px 6px rgba(0,136,204,0.4); transition: transform 0.15s; }}
         .markup-control input[type="range"]::-webkit-slider-thumb:hover {{ transform: scale(1.2); }}
         .markup-control .pct-input {{ width: 60px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); padding: 6px 8px; border-radius: 6px; color: #4cff88; font-weight: 700; font-size: 0.9rem; text-align: center; outline: none; transition: border 0.3s; }}
-        .markup-control .pct-input:focus {{ border-color: var(--jakmall-blue); }}
+        .markup-control .pct-input:focus {{ border-color: var(--jakmall-orange); }}
         .markup-control .pct-label {{ color: #4cff88; font-weight: 700; font-size: 0.9rem; min-width: 15px; }}
 
         .product-actions {{ display: flex; justify-content: flex-end; margin-bottom: 20px; }}
@@ -144,10 +144,10 @@ def generate_site():
         .main-content {{ flex: 1; overflow-y: auto; padding: 40px; background: radial-gradient(circle at top right, rgba(0, 136, 204, 0.05), transparent); }}
         .content-container {{ max-width: 900px; margin: 0 auto; background: var(--card-bg); padding: 50px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); min-height: 80vh; }}
         .welcome-screen {{ height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-secondary); }}
-        .welcome-screen h1 {{ color: var(--jakmall-blue); margin-bottom: 20px; font-size: 2.5rem; }}
+        .welcome-screen h1 {{ color: var(--jakmall-orange); margin-bottom: 20px; font-size: 2.5rem; }}
 
         /* Markdown Rendering Overrides */
-        #rendered-content h1 {{ margin-bottom: 30px; color: var(--jakmall-blue); line-height: 1.2; }}
+        #rendered-content h1 {{ margin-bottom: 30px; color: var(--jakmall-orange); line-height: 1.2; }}
         #rendered-content h2 {{ margin-top: 40px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }}
         #rendered-content p {{ margin-bottom: 15px; line-height: 1.6; }}
         #rendered-content ul, #rendered-content ol {{ margin-bottom: 20px; padding-left: 20px; }}
@@ -156,7 +156,7 @@ def generate_site():
         #rendered-content img:hover {{ transform: scale(1.02); }}
         #rendered-content a {{ color: var(--accent); text-decoration: none; }}
         #rendered-content a:hover {{ text-decoration: underline; }}
-        #rendered-content blockquote {{ border-left: 4px solid var(--jakmall-blue); padding-left: 20px; color: var(--text-secondary); font-style: italic; margin-bottom: 20px; }}
+        #rendered-content blockquote {{ border-left: 4px solid var(--jakmall-orange); padding-left: 20px; color: var(--text-secondary); font-style: italic; margin-bottom: 20px; }}
         #rendered-content table {{ width: 100%; border-collapse: collapse; margin-bottom: 30px; }}
         #rendered-content th, #rendered-content td {{ border: 1px solid rgba(255,255,255,0.1); padding: 12px; text-align: left; }}
         #rendered-content th {{ background: rgba(255,255,255,0.05); }}
@@ -242,7 +242,7 @@ def generate_site():
                     if (!numStr) return p.trim();
                     const val = parseInt(numStr);
                     const upVal = Math.round(val * (1 + currentMarkupPct / 100));
-                    return 'Rp' + upVal.toLocaleString('id-ID').replace(/,/g, '.');
+                    return 'Rp ' + upVal.toLocaleString('id-ID').replace(/,/g, '.');
                 }});
                 return results.join(' - ');
             }} catch {{
@@ -294,7 +294,7 @@ def generate_site():
                             let priceImg = parts.slice(1).join(' : ');
                             let priceParts = priceImg.split(' | ');
                             let rawPriceString = priceParts[0];
-                            let uploadMatch = rawPriceString.match(/Upload: Rp([\\d\\.]+)/);
+                            let uploadMatch = rawPriceString.match(/Upload: Rp\\s?([\\d\\.]+)/);
                             let price = "";
                             if (uploadMatch) {{
                                 price = uploadMatch[1].replace(/[^0-9]/g, '');
@@ -303,7 +303,7 @@ def generate_site():
                             }}
                             
                             let imgUrl = "";
-                            let imgMatch = priceImg.match(/\\]\\((.*?)\\)/);
+                            let imgMatch = priceImg.match(/\\\]\\((.*?)\\)/);
                             if (imgMatch) imgUrl = imgMatch[1];
                             
                             variations.push({{
@@ -327,7 +327,7 @@ def generate_site():
                 row[3] = product.parsed["Deskripsi"] || ""; 
                 
                 let rawPriceString = product.parsed["Harga"] || "";
-                let uploadMatch = rawPriceString.match(/Harga Upload: Rp([\\d\\.]+)/);
+                let uploadMatch = rawPriceString.match(/Harga Upload: Rp\\s?([\\d\\.]+)/);
                 let rawPrice = "";
                 if (uploadMatch) {{
                     rawPrice = uploadMatch[1].replace(/[^0-9]/g, '');
@@ -516,26 +516,26 @@ def generate_site():
 
             renderedDiv.querySelectorAll('span').forEach(span => {{
                 const text = span.textContent.trim();
-                const mainMatch = text.match(/^Harga Upload: Rp([\\d\\.]+)$/);
+                const mainMatch = text.match(/^Harga Upload: Rp\\s?([\\d\\.]+)$/);
                 if (mainMatch) {{
                     const parentEl = span.parentElement;
                     const parentText = parentEl ? parentEl.textContent : '';
-                    const origMatch = parentText.match(/Harga Asli: Rp([\\d\\.]+)/);
+                    const origMatch = parentText.match(/Harga Asli: Rp\\s?([\\d\\.]+)/);
                     if (origMatch) {{
                         span.setAttribute('data-upload-price', 'true');
-                        span.setAttribute('data-original-price', 'Rp' + origMatch[1]);
+                        span.setAttribute('data-original-price', 'Rp ' + origMatch[1]);
                     }}
                 }}
-                const varMatch = text.match(/^\\(Upload: Rp([\\d\\.]+)\\)$/);
+                const varMatch = text.match(/^\\(Upload: Rp\\s?([\\d\\.]+)\\)$/);
                 if (varMatch) {{
                     const li = span.closest('li') || span.parentElement;
                     if (li) {{
                         const liText = li.textContent;
-                        const origVarMatch = liText.match(/: Rp([\\d\\.]+)\\s*\\(Upload:/);
+                        const origVarMatch = liText.match(/: Rp\\s?([\\d\\.]+)\\s*\\(Upload:/);
                         if (origVarMatch) {{
                             span.setAttribute('data-upload-price', 'true');
                             span.setAttribute('data-is-variant', 'true');
-                            span.setAttribute('data-original-price', 'Rp' + origVarMatch[1]);
+                            span.setAttribute('data-original-price', 'Rp ' + origVarMatch[1]);
                         }}
                     }}
                 }}
